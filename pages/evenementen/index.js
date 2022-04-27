@@ -1,5 +1,6 @@
 import Layout from '../../components/Layout'
 import Link from 'next/link'
+import Image from 'next/image';
 
 export const getStaticProps = async () => {
     /** runs at build time */
@@ -14,14 +15,30 @@ export const getStaticProps = async () => {
 const Evenementen = ({ evenementen }) => {
     return (
             <div>
-                <h2>Alle evenementen</h2>
+                <h1>Alle evenementen</h1>
+                <div className="grid grid-cols-4 gap-2">
                 {evenementen.map(evenement => (
                     <Link href={'/evenementen/' + evenement.record.id} key={evenement.record.id} >
-                        <a >
-                            <h3>{evenement.record.fields.titel}</h3>
+                        <a className="bg-gray-200 block mb-4">
+                            <div className="h-40 relative">
+                                <Image src={evenement.record.fields.teaser_img_url} layout="fill" objectFit='cover'/>
+                            </div>
+                            <div className="p-4">
+                                <h3 className="text-md font-bold">{evenement.record.fields.titel}</h3>
+                                <p>{evenement.record.fields.tag_1}</p>
+                                <p>{evenement.record.fields.adres}<br/>
+                                    {evenement.record.fields.postcode}
+                                    {evenement.record.fields.gemeente}
+                                </p>
+                                <button className="text-sky-600 font-bold">Lees meer</button>
+        
+                            </div>
+                        
+                            
                         </a>
                     </Link>
                 ))}
+                </div>
             </div>
     );
 }
