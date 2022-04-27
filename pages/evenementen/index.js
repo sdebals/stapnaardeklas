@@ -13,14 +13,15 @@ export const getStaticProps = async () => {
 }
 
 const Evenementen = ({ evenementen }) => {
+    
     return (
             <div>
                 <h1>Alle evenementen</h1>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-3 gap-6">
                 {evenementen.map(evenement => (
                     <Link href={'/evenementen/' + evenement.record.id} key={evenement.record.id} >
                         <a className="bg-gray-200 block mb-4">
-                            <div className="h-40 relative">
+                            <div className="h-52 relative">
                                 <Image src={evenement.record.fields.teaser_img_url} layout="fill" objectFit='cover'/>
                             </div>
                             <div className="p-4">
