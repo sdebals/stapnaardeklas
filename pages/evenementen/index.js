@@ -13,7 +13,7 @@ export const getStaticProps = async () => {
 }
 
 const Evenementen = ({ evenementen }) => {
-    
+
     return (
             <div>
                 <h1>Alle evenementen</h1>
@@ -26,7 +26,7 @@ const Evenementen = ({ evenementen }) => {
                             </div>
                             <div className="p-4">
                                 <h3 className="text-md font-bold">{evenement.record.fields.titel}</h3>
-                                <p>{evenement.record.fields.tag_1}</p>
+                                <p>{evenement.record.fields.tag_1.split(', ').map(tag => <span key={tag}>{tag}</span>)}</p>
                                 <p>{evenement.record.fields.adres}<br/>
                                     {evenement.record.fields.postcode}
                                     {evenement.record.fields.gemeente}
