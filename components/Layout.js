@@ -3,9 +3,13 @@ import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return ( 
-    <div className="container p-4 max-w-5xl">
+    <div>
       <Navbar />
-      { children}
+      <div className="bg-grayLight py-6">
+        <div className="container p-4 max-w-5xl">
+          {children}
+        </div>	
+      </div>
       <Footer />
     </div>
   );

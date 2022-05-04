@@ -6,11 +6,11 @@
 
 @layer base {
   body {
-    @apply bg-white text-gray-800;
+    @apply bg-white text-grayVeryDark text-sm;
   }
 
   h1 {
-    @apply text-2xl font-bold mb-4;
+    @apply text-2xl  mb-8;
   }
   h2 {
     @apply text-xl font-bold mb-4;
@@ -20,8 +20,4 @@
   }
 
 }
-body {
-  
 
-  color: #333;
-}
